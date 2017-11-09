@@ -1,0 +1,5 @@
+# restart dhcpd service
+sudo service dhcpcd restart
+
+# reload wlan0 configuration
+sudo ifdown wlan0; sudo ifup wlan0
