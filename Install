@@ -7,5 +7,5 @@ sudo apt install nodejs
 sudo git clone https://github.com/Vochsel/GameHub-Server.git
 cd GameHub-Server
 
-node install
-node update
+npm install
+npm update
