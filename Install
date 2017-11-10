@@ -3,3 +3,9 @@ sudo apt-get update
 
 sudo apt-get install dnsmasq hostapd
 sudo apt install nodejs
+
+sudo git clone https://github.com/Vochsel/GameHub-Server.git
+cd GameHub-Server
+
+node install
+node update
