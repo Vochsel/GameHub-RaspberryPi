@@ -3,7 +3,7 @@
 sudo apt update
 sudo apt-get update
 
-sudo apt-get install dnsmasq hostapd
+sudo apt-get -y install dnsmasq hostapd
 
 # -- Node
 #curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
@@ -25,3 +25,5 @@ sudo git pull
 
 sudo npm install
 sudo npm update
+
+bash switch_host_mode.sh

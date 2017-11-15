@@ -11,6 +11,8 @@ then
 
     # Network Interfaces
     sudo cp ./default_conf/interfaces /etc/network/interfaces
+    # restart dhcpd service
+    #sudo service dhcpcd restart
 
     # restart dhcpd service
     sudo service dhcpcd restart
@@ -34,6 +36,9 @@ then
     sudo cp ./default_conf/sysctl.conf /etc/sysctl.conf
 
     sudo service dnsmasq stop
+
+    sudo service dhcpcd stop
+    sudo service dhcpcd start
 
     sudo reboot
 
