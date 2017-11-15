@@ -50,7 +50,7 @@ then
 
     sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
-    #sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport 80 -j REDIRECT --to-port 3000
+    sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport 80 -j REDIRECT --to-port 3000
     sudo iptables -t nat -A OUTPUT -o lo -p tcp --dport 80 -j REDIRECT --to-port 3000
 
     sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
