@@ -15,8 +15,13 @@ command -v nvm
 sudo nvm install v6.11.5
 sudo nvm use v6.11.5
 
-sudo git clone https://github.com/Vochsel/GameHub-Server.git
+if [ ! -d "GameHub-Server" ]; then
+    sudo git clone https://github.com/Vochsel/GameHub-Server.git
+fi
+
 cd GameHub-Server
+
+sudo git pull
 
 sudo npm install
 sudo npm update
