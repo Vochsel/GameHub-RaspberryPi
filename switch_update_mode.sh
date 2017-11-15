@@ -8,7 +8,7 @@ sudo cp ./default_conf/dhcpcd.conf /etc/dhcpcd.conf
 sudo cp ./default_conf/interfaces /etc/network/interfaces
 
 # restart dhcpd service
-sudo service dhcpcd restart
+#sudo service dhcpcd restart
 
 # reload wlan0 configuration
 sudo ifdown wlan0; sudo ifup wlan0
@@ -30,3 +30,6 @@ sudo cp ./default_conf/dnsmasq.conf /etc/dnsmasq.conf
 sudo cp ./default_conf/sysctl.conf /etc/sysctl.conf
 
 sudo service dnsmasq stop
+
+sudo service dhcpcd stop
+sudo service dhcpcd start

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+
+
 # DHCPD
 
 sudo cp ./host_conf/dhcpcd.conf /etc/dhcpcd.conf
@@ -43,11 +46,17 @@ sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -
 
 sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
-sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport 80 -j REDIRECT --to-port 3000
+#sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport 80 -j REDIRECT --to-port 3000
 
-sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
+sudo iptables -t nat -A OUTPUT -o lo -p tcp --dport 80 -j REDIRECT --to-port 3000
+
+#sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
 
 
+sudo service dnsmasq stop
 sudo service hostapd stop
-sleep 3s
+#sleep 5s
+sudo service dnsmasq start
 sudo service hostapd start
+
+sudo reboot
