@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "This will reboot the Pi, are you sure? " -n 1 -r
+read -p "This will reboot the Pi, are you sure? [y]" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then

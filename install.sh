@@ -23,7 +23,8 @@ cd GameHub-Server
 
 sudo git pull
 
-sudo npm install
-sudo npm update
-
-bash switch_host_mode.sh
+if [ ! -d "node_modules" ]; then
+    sudo npm install
+else
+    sudo npm update
+fi
