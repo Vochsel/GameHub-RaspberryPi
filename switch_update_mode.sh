@@ -1,32 +1,40 @@
 #!/bin/bash
 
-# DHCPD
+read -p "This will reboot the Pi, are you sure? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
 
-sudo cp ./default_conf/dhcpcd.conf /etc/dhcpcd.conf
+    # DHCPD
 
-# Network Interfaces
-sudo cp ./default_conf/interfaces /etc/network/interfaces
+    sudo cp ./default_conf/dhcpcd.conf /etc/dhcpcd.conf
 
-# restart dhcpd service
-sudo service dhcpcd restart
+    # Network Interfaces
+    sudo cp ./default_conf/interfaces /etc/network/interfaces
 
-# reload wlan0 configuration
-sudo ifdown wlan0; sudo ifup wlan0
+    # restart dhcpd service
+    sudo service dhcpcd restart
 
-# HOSTAPD
+    # reload wlan0 configuration
+    sudo ifdown wlan0; sudo ifup wlan0
 
-sudo rm -r /etc/hostapd/hostapd.conf
+    # HOSTAPD
 
-sudo cp ./default_conf/hostapd /etc/default/hostapd
+    sudo rm -r /etc/hostapd/hostapd.conf
 
-# stop hostapd
-sudo service hostapd stop
+    sudo cp ./default_conf/hostapd /etc/default/hostapd
 
+    # stop hostapd
+    sudo service hostapd stop
 
-# DNSMASQ
+    # DNSMASQ
 
-sudo cp ./default_conf/dnsmasq.conf /etc/dnsmasq.conf
+    sudo cp ./default_conf/dnsmasq.conf /etc/dnsmasq.conf
 
-sudo cp ./default_conf/sysctl.conf /etc/sysctl.conf
+    sudo cp ./default_conf/sysctl.conf /etc/sysctl.conf
 
-sudo service dnsmasq stop
+    sudo service dnsmasq stop
+
+    sudo reboot
+
+fi
