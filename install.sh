@@ -7,6 +7,9 @@ sudo apt-get -y install dnsmasq hostapd
 
 sudo apt-get -y install xautomation
 
+# -- Conf
+sudo cp ./host_conf/lightdm.conf /etc/lightdm/lightdm.conf
+
 # -- Node
 #curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
 wget -qO- https://raw.githubusercontent.com/xtuple/nvm/master/install.sh | sudo bash
