@@ -6,6 +6,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
     # do dangerous stuff
 
+    # Startup
+    sudo cp ./host_conf/profile /etc/profile
+
 
     # DHCPD
 

@@ -5,6 +5,9 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
+    # Startup
+    sudo cp ./default_conf/profile /etc/profile
+
     # DHCPD
 
     sudo cp ./default_conf/dhcpcd.conf /etc/dhcpcd.conf
